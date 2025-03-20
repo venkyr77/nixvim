@@ -1,5 +1,5 @@
 {
-  description = "A nixvim configuration";
+  description = "Neovim configuration using nixvim";
 
   inputs = {
     nixpkgs.url = "github:nixos/nixpkgs/nixpkgs-unstable";
