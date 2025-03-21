@@ -2,6 +2,7 @@
   plugins.neo-tree = {
     enable = true;
     defaultComponentConfigs.indent.withExpanders = true;
+    extraOptions.enable_cursor_hijack = true;
     filesystem = {
       filteredItems = {
         hideDotfiles = false;
