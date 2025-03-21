@@ -13,12 +13,11 @@
       diagnostics_indicator =
         # lua
         ''
-          function(count, level, diagnostics_dict, context)
+          function(_, _, diagnostics_dict, _)
             local s = ""
             for e, n in pairs(diagnostics_dict) do
-              local sym = e == "error" and " "
-                or (e == "warning" and " " or "" )
-              if(sym ~= "") then
+              local sym = e == "error" and " " or (e == "warning" and " " or "")
+              if sym ~= "" then
                 s = s .. " " .. n .. sym
               end
             end
@@ -31,7 +30,7 @@
         # lua
         ''
           function(opts)
-            return string.format('%s·%s', opts.raise(opts.id), opts.lower(opts.ordinal))
+            return string.format("%s·%s", opts.raise(opts.id), opts.lower(opts.ordinal))
           end
         '';
       offsets = [

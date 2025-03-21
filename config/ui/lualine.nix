@@ -11,12 +11,12 @@
               {
                 "mode",
                 icons_enabled = true,
-                separator = { left = '▎', right = '' },
+                separator = { left = "▎", right = "" },
               },
               {
                 "",
                 draw_empty = true,
-                separator = { left = '', right = '' },
+                separator = { left = "", right = "" },
               },
             }
           '';
@@ -28,17 +28,17 @@
                 "filetype",
                 colored = true,
                 icon_only = true,
-                icon = { align = 'left' },
+                icon = { align = "left" },
               },
               {
                 "filename",
-                symbols = {modified = ' ', readonly = ' '},
-                separator = {right = ''},
+                symbols = { modified = " ", readonly = " " },
+                separator = { right = "" },
               },
               {
                 "",
                 draw_empty = true,
-                separator = { left = '', right = '' },
+                separator = { left = "", right = "" },
               },
             }
           '';
@@ -50,13 +50,13 @@
                 "diff",
                 colored = false,
                 diff_color = {
-                  added    = 'DiffAdd',
-                  modified = 'DiffChange',
-                  removed  = 'DiffDelete',
+                  added = "DiffAdd",
+                  modified = "DiffChange",
+                  removed = "DiffDelete",
                 },
-                symbols = {added = '+', modified = '~', removed = '-'},
-                separator = {right = ''},
-              }
+                symbols = { added = "+", modified = "~", removed = "-" },
+                separator = { right = "" },
+              },
             }
           '';
         lualine_x.__raw =
@@ -65,9 +65,9 @@
             {
               {
                 function()
-                  local buf_ft = vim.api.nvim_get_option_value('filetype', {})
+                  local buf_ft = vim.api.nvim_get_option_value("filetype", {})
 
-                  local excluded_buf_ft = {"neo-tree", "TelescopePrompt"}
+                  local excluded_buf_ft = { "neo-tree", "TelescopePrompt" }
 
                   for _, excluded_type in ipairs(excluded_buf_ft) do
                     if buf_ft == excluded_type then
@@ -76,7 +76,7 @@
                   end
 
                   local clients = vim.lsp.get_active_clients()
-                  local msg = 'No Active Lsp'
+                  local msg = "No Active Lsp"
 
                   if next(clients) == nil then
                     return msg
@@ -91,20 +91,20 @@
 
                   return msg
                 end,
-                icon = ' ',
-                separator = {left = ''},
+                icon = " ",
+                separator = { left = "" },
               },
               {
                 "diagnostics",
-                sources = {'nvim_lsp', 'nvim_diagnostic'},
-                symbols = {error = '󰅙  ', warn = '  ', info = '  ', hint = '󰌵 '},
+                sources = { "nvim_lsp", "nvim_diagnostic" },
+                symbols = { error = "󰅙  ", warn = "  ", info = "  ", hint = "󰌵 " },
                 colored = true,
                 update_in_insert = false,
                 always_visible = false,
                 diagnostics_color = {
-                  color_error = { fg = 'red' },
-                  color_warn = { fg = 'yellow' },
-                  color_info = { fg = 'cyan' },
+                  color_error = { fg = "red" },
+                  color_warn = { fg = "yellow" },
+                  color_info = { fg = "cyan" },
                 },
               },
             }
@@ -116,18 +116,18 @@
               {
                 "",
                 draw_empty = true,
-                separator = { left = '', right = '' },
+                separator = { left = "", right = "" },
               },
               {
-                'searchcount',
+                "searchcount",
                 maxcount = 999,
                 timeout = 120,
-                separator = {left = ''},
+                separator = { left = "" },
               },
               {
                 "branch",
-                icon = ' •',
-                separator = {left = ''},
+                icon = " •",
+                separator = { left = "" },
               },
             }
           '';
@@ -138,21 +138,21 @@
               {
                 "",
                 draw_empty = true,
-                separator = { left = '', right = '' }
+                separator = { left = "", right = "" },
               },
               {
                 "progress",
-                separator = {left = ''}
+                separator = { left = "" },
               },
-              {"location"},
+              { "location" },
               {
                 "fileformat",
-                color = {fg='black'},
+                color = { fg = "black" },
                 symbols = {
-                  unix = '',
-                  dos = '',
-                  mac = '',
-                }
+                  unix = "",
+                  dos = "",
+                  mac = "",
+                },
               },
             }
           '';
