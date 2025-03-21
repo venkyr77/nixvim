@@ -2,16 +2,14 @@
   plugins.bufferline = {
     enable = true;
     settings.options = {
-      close_command.__raw =
-        # lua
+      close_command.__raw = # lua
         ''
           function(n)
             require("mini.bufremove").delete(n, false)
           end
         '';
       diagnostics = "nvim_lsp";
-      diagnostics_indicator =
-        # lua
+      diagnostics_indicator = # lua
         ''
           function(_, _, diagnostics_dict, _)
             local s = ""
@@ -26,8 +24,7 @@
         '';
       indicator.style = "underline";
       modified_icon = "●";
-      numbers.__raw =
-        # lua
+      numbers.__raw = # lua
         ''
           function(opts)
             return string.format("%s·%s", opts.raise(opts.id), opts.lower(opts.ordinal))

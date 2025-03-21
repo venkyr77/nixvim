@@ -4,8 +4,7 @@
     settings = {
       extensions = [ "neo-tree" ];
       sections = {
-        lualine_a.__raw =
-          #lua
+        lualine_a.__raw = # lua
           ''
             {
               {
@@ -20,8 +19,7 @@
               },
             }
           '';
-        lualine_b.__raw =
-          #lua
+        lualine_b.__raw = # lua
           ''
             {
               {
@@ -42,8 +40,7 @@
               },
             }
           '';
-        lualine_c.__raw =
-          #lua
+        lualine_c.__raw = # lua
           ''
             {
               {
@@ -59,8 +56,7 @@
               },
             }
           '';
-        lualine_x.__raw =
-          #lua
+        lualine_x.__raw = # lua
           ''
             {
               {
@@ -109,8 +105,7 @@
               },
             }
           '';
-        lualine_y.__raw =
-          #lua
+        lualine_y.__raw = # lua
           ''
             {
               {
@@ -131,8 +126,7 @@
               },
             }
           '';
-        lualine_z.__raw =
-          # lua
+        lualine_z.__raw = # lua
           ''
             {
               {
