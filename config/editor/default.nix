@@ -8,6 +8,7 @@
     ./indent-blankline.nix
     ./mini.nix
     ./smartyank.nix
+    ./telescope.nix
     ./treesitter.nix
   ];
 }
