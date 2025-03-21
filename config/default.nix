@@ -1,7 +1,9 @@
 {
   imports = [
     ./editor
-    ./languages
+    ./format
+    ./lint
+    ./lsp
     ./ui
     ./options.nix
   ];
