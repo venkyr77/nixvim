@@ -1,5 +1,6 @@
 {
   imports = [
+    ./completion
     ./editor
     ./format
     ./lint
