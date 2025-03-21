@@ -1,6 +1,5 @@
 {
-  imports = [ ];
-  plugins = {
-    web-devicons.enable = true;
-  };
+  imports = [
+    ./web-devicons.nix
+  ];
 }
