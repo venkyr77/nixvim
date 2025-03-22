@@ -17,8 +17,5 @@
       groupEmptyDirs = true;
       scanMode = "deep";
     };
-    window.mappings = {
-      "\\" = "close_window";
-    };
   };
 }
