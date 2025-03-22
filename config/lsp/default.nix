@@ -1,4 +1,8 @@
 {
+  imports = [
+    ./jdtls.nix
+  ];
+
   plugins = {
     lsp = {
       enable = true;
