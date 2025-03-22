@@ -4,7 +4,8 @@
     luaConfig.post = # lua
       ''
         require("which-key").add({
-          { "<leader>h", group = "[h]unk(gitsigns)" },
+          { "<leader>h", group = "hunk(gitsigns)" },
+          { "<leader>f", group = "format(conform)" },
         })
       '';
   };
