@@ -6,6 +6,7 @@
         enable = true;
         settings.fuzzy = false;
       };
+      ui-select.enable = true;
     };
     settings = {
       defaults = {
