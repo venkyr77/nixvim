@@ -8,6 +8,7 @@
     ./notify.nix
     ./nui.nix
     ./rainbow-delimiters.nix
+    ./render-markdown.nix
     ./web-devicons.nix
   ];
 }
