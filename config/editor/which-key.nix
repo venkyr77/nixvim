@@ -8,5 +8,9 @@
           { "<leader>f", group = "format(conform)" },
         })
       '';
+    settings = {
+      preset = "modern";
+      win.border = "rounded";
+    };
   };
 }
