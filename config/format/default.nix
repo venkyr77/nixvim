@@ -19,13 +19,16 @@
           denofmt_md = denofmt "md";
           nixfmt-rfc-style.command = lib.getExe nixfmt-rfc-style;
           prettierd.command = lib.getExe prettierd;
+          shfmt.command = lib.getExe shfmt;
           stylua.command = lib.getExe stylua;
         };
       formatters_by_ft = {
         markdown = [ "denofmt_md" ];
         lua = [ "stylua" ];
         nix = [ "nixfmt-rfc-style" ];
+        sh = [ "shfmt" ];
         typescript = [ "prettierd" ];
+        zsh = [ "shfmt" ];
       };
     };
   };
