@@ -2,6 +2,7 @@
   plugins.telescope.keymaps = {
     "<leader>sf" = "find_files";
     "<leader>sg" = "live_grep";
+    "<leader>sr" = "resume";
     "<leader>ss" = "grep_string";
     "<leader>shc" = "command_history";
     "<leader>shs" = "search_history";
