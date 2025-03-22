@@ -9,6 +9,7 @@
     ./nui.nix
     ./rainbow-delimiters.nix
     ./render-markdown.nix
+    ./todo-comments.nix
     ./web-devicons.nix
   ];
 }
