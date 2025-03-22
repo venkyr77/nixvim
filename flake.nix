@@ -29,7 +29,7 @@
             inherit system;
             module = import ./config;
             extraSpecialArgs = {
-              inherit (import ./lib) mkLua;
+              helper = import ./helper;
             };
           };
           nvim = nixvim'.makeNixvimWithModule nixvimModule;

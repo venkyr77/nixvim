@@ -1,10 +1,10 @@
-{ pkgs, mkLua, ... }:
+{ pkgs, helper, ... }:
 {
   extraPlugins = with pkgs.vimPlugins; [
     {
       plugin = smartyank-nvim;
       config =
-        mkLua
+        helper.mkLua
           # lua
           ''
             require("smartyank").setup({ osc52 = { ssh_only = false } })
