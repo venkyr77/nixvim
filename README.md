@@ -6,7 +6,10 @@ configuration in Nix using [nixvim](https://github.com/nix-community/nixvim)
 ## Run using `nix run`
 
 ```sh
-nix run --extra-experimental-features nix-command --extra-experimental-features flakes github:venkyr77/nixvim
+nix run \
+    --extra-experimental-features nix-command \
+    --extra-experimental-features flakes \
+    github:venkyr77/nixvim
 ```
 
 ## Run as a standalone flake
@@ -37,9 +40,7 @@ A simple standalone flake that makes this package as default
       perSystem =
         { system, ... }:
         {
-          packages = {
-            inherit (nixvim.packages.${system}) default;
-          };
+          packages = { inherit (nixvim.packages.${system}) default; };
         };
     };
 }
@@ -48,5 +49,8 @@ A simple standalone flake that makes this package as default
 and then run using `nix run` by,
 
 ```sh
-nix run --extra-experimental-features nix-command --extra-experimental-features flakes .
+nix run \
+    --extra-experimental-features nix-command \
+    --extra-experimental-features flakes \
+    .
 ```
