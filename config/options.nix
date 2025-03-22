@@ -3,7 +3,7 @@
     number = true;
     relativenumber = true;
     mouse = "a";
-    laststatus = 0;
+    laststatus = 3;
     breakindent = true;
     undofile = true;
     signcolumn = "yes";

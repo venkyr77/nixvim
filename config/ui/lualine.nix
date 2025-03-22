@@ -3,6 +3,13 @@
     enable = true;
     settings = {
       extensions = [ "neo-tree" ];
+      options.ignore_focus.__raw = # lua
+        ''
+          {
+            "TelescopePrompt",
+            "trouble",
+          }
+        '';
       sections = {
         lualine_a.__raw = # lua
           ''
@@ -62,15 +69,6 @@
               {
                 function()
                   local buf_ft = vim.api.nvim_get_option_value("filetype", {})
-
-                  local excluded_buf_ft = { "neo-tree", "TelescopePrompt" }
-
-                  for _, excluded_type in ipairs(excluded_buf_ft) do
-                    if buf_ft == excluded_type then
-                      return ""
-                    end
-                  end
-
                   local clients = vim.lsp.get_active_clients()
                   local msg = "No Active Lsp"
 
