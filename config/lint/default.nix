@@ -1,5 +1,4 @@
-{ pkgs, ... }:
-{
+{pkgs, ...}: {
   plugins.lint = {
     autoCmd.event = [
       "BufEnter"
@@ -14,11 +13,11 @@
       statix.cmd = lib.getExe statix;
     };
     lintersByFt = {
-      lua = [ "luacheck" ];
-      markdown = [ "markdownlint" ];
-      nix = [ "statix" ];
-      sh = [ "shellcheck" ];
-      zsh = [ "shellcheck" ];
+      lua = ["luacheck"];
+      markdown = ["markdownlint"];
+      nix = ["statix"];
+      sh = ["shellcheck"];
+      zsh = ["shellcheck"];
     };
   };
 }

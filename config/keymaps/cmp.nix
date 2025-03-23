@@ -1,5 +1,6 @@
 {
-  plugins.cmp.settings.mapping.__raw = # lua
+  plugins.cmp.settings.mapping.__raw =
+    # lua
     ''
       {
         ["<Down>"] = cmp.mapping.select_next_item({ behavior = "select" }),

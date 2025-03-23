@@ -1,8 +1,6 @@
-{ helper, ... }:
-let
+{helper, ...}: let
   inherit (helper) mkBinding;
-in
-{
+in {
   keymaps = [
     (mkBinding "\\" ":Neotree toggle<CR>" "toggle neo-tree")
   ];

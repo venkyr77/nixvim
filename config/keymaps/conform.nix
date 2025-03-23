@@ -1,10 +1,9 @@
-{ helper, ... }:
-let
+{helper, ...}: let
   inherit (helper) mkLuaBinding;
-in
-{
+in {
   keymaps = [
-    (mkLuaBinding "<leader>fb"
+    (
+      mkLuaBinding "<leader>fb"
       # lua
       ''
         function()

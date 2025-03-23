@@ -19,7 +19,7 @@
             width = 0.95;
           };
         };
-        path_display = [ "filename_first" ];
+        path_display = ["filename_first"];
         preview.treesitter = true;
       };
     };

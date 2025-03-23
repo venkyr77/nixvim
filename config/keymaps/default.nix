@@ -1,8 +1,6 @@
-{ helper, ... }:
-let
+{helper, ...}: let
   inherit (helper) mkBinding;
-in
-{
+in {
   imports = [
     ./cmp.nix
     ./conform.nix

@@ -2,8 +2,9 @@
   plugins.lualine = {
     enable = true;
     settings = {
-      extensions = [ "neo-tree" ];
-      options.ignore_focus.__raw = # lua
+      extensions = ["neo-tree"];
+      options.ignore_focus.__raw =
+        # lua
         ''
           {
             "TelescopePrompt",
@@ -11,7 +12,8 @@
           }
         '';
       sections = {
-        lualine_a.__raw = # lua
+        lualine_a.__raw =
+          # lua
           ''
             {
               {
@@ -26,7 +28,8 @@
               },
             }
           '';
-        lualine_b.__raw = # lua
+        lualine_b.__raw =
+          # lua
           ''
             {
               {
@@ -47,7 +50,8 @@
               },
             }
           '';
-        lualine_c.__raw = # lua
+        lualine_c.__raw =
+          # lua
           ''
             {
               {
@@ -63,7 +67,8 @@
               },
             }
           '';
-        lualine_x.__raw = # lua
+        lualine_x.__raw =
+          # lua
           ''
             {
               {
@@ -103,7 +108,8 @@
               },
             }
           '';
-        lualine_y.__raw = # lua
+        lualine_y.__raw =
+          # lua
           ''
             {
               {
@@ -124,7 +130,8 @@
               },
             }
           '';
-        lualine_z.__raw = # lua
+        lualine_z.__raw =
+          # lua
           ''
             {
               {

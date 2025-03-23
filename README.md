@@ -27,9 +27,12 @@ A simple standalone flake that makes this package as default
     flake-parts.url = "github:hercules-ci/flake-parts";
   };
 
-  outputs =
-    { nixvim, flake-parts, ... }@inputs:
-    flake-parts.lib.mkFlake { inherit inputs; } {
+  outputs = {
+    nixvim,
+    flake-parts,
+    ...
+  } @ inputs:
+    flake-parts.lib.mkFlake {inherit inputs;} {
       systems = [
         "x86_64-linux"
         "aarch64-linux"
@@ -37,11 +40,9 @@ A simple standalone flake that makes this package as default
         "aarch64-darwin"
       ];
 
-      perSystem =
-        { system, ... }:
-        {
-          packages = { inherit (nixvim.packages.${system}) default; };
-        };
+      perSystem = {system, ...}: {
+        packages = {inherit (nixvim.packages.${system}) default;};
+      };
     };
 }
 ```

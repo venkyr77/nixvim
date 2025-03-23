@@ -6,7 +6,8 @@
   plugins = {
     lsp = {
       enable = true;
-      postConfig = # lua
+      postConfig =
+        # lua
         ''
           require("lspconfig").bashls.setup({
               handlers = {

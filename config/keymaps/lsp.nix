@@ -1,8 +1,6 @@
-{ helper, ... }:
-let
+{helper, ...}: let
   inherit (helper) mkLuaBinding;
-in
-{
+in {
   plugins = {
     lsp.keymaps = {
       diagnostic = {
@@ -20,7 +18,8 @@ in
     };
   };
   keymaps = [
-    (mkLuaBinding "<leader>gd"
+    (
+      mkLuaBinding "<leader>gd"
       # lua
       ''
         function()
@@ -31,7 +30,8 @@ in
       ''
       "[d]efinitions"
     )
-    (mkLuaBinding "<leader>gD"
+    (
+      mkLuaBinding "<leader>gD"
       # lua
       ''
         function()
@@ -42,7 +42,8 @@ in
       ''
       "[D]eclarations"
     )
-    (mkLuaBinding "<leader>gi"
+    (
+      mkLuaBinding "<leader>gi"
       # lua
       ''
         function()
@@ -53,7 +54,8 @@ in
       ''
       "[i]mplementations"
     )
-    (mkLuaBinding "<leader>gr"
+    (
+      mkLuaBinding "<leader>gr"
       # lua
       ''
         function()
@@ -64,7 +66,8 @@ in
       ''
       "[r]eferences"
     )
-    (mkLuaBinding "<leader>gt"
+    (
+      mkLuaBinding "<leader>gt"
       # lua
       ''
         function()
