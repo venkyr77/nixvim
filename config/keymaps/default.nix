@@ -11,6 +11,6 @@ in {
   ];
 
   keymaps = [
-    (mkBinding "<Esc>" "<cmd>nohlsearch<CR>" "Clear search highlights")
+    (mkBinding ["n"] "<Esc>" "<cmd>nohlsearch<CR>" "Clear search highlights")
   ];
 }

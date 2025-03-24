@@ -2,6 +2,6 @@
   inherit (helper) mkBinding;
 in {
   keymaps = [
-    (mkBinding "\\" ":Neotree toggle<CR>" "toggle neo-tree")
+    (mkBinding ["n"] "\\" ":Neotree toggle<CR>" "toggle neo-tree")
   ];
 }

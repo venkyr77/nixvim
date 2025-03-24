@@ -3,7 +3,7 @@
 in {
   keymaps = [
     (
-      mkLuaBinding "<leader>fb"
+      mkLuaBinding ["n" "v"] "<leader>fb"
       # lua
       ''
         function()

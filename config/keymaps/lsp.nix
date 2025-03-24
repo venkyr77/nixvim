@@ -19,7 +19,7 @@ in {
   };
   keymaps = [
     (
-      mkLuaBinding "<leader>gd"
+      mkLuaBinding ["n"] "<leader>gd"
       # lua
       ''
         function()
@@ -31,7 +31,7 @@ in {
       "[d]efinitions"
     )
     (
-      mkLuaBinding "<leader>gD"
+      mkLuaBinding ["n"] "<leader>gD"
       # lua
       ''
         function()
@@ -43,7 +43,7 @@ in {
       "[D]eclarations"
     )
     (
-      mkLuaBinding "<leader>gi"
+      mkLuaBinding ["n"] "<leader>gi"
       # lua
       ''
         function()
@@ -55,7 +55,7 @@ in {
       "[i]mplementations"
     )
     (
-      mkLuaBinding "<leader>gr"
+      mkLuaBinding ["n"] "<leader>gr"
       # lua
       ''
         function()
@@ -67,7 +67,7 @@ in {
       "[r]eferences"
     )
     (
-      mkLuaBinding "<leader>gt"
+      mkLuaBinding ["n"] "<leader>gt"
       # lua
       ''
         function()

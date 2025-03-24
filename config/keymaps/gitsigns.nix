@@ -3,7 +3,7 @@
 in {
   keymaps = [
     (
-      mkLuaBinding "<leader>hn"
+      mkLuaBinding ["n"] "<leader>hn"
       # lua
       ''
         function()
@@ -17,7 +17,7 @@ in {
       "[n]ext hunk"
     )
     (
-      mkLuaBinding "<leader>hp"
+      mkLuaBinding ["n"] "<leader>hp"
       # lua
       ''
         function()
@@ -31,7 +31,7 @@ in {
       "[p]rev hunk"
     )
     (
-      mkLuaBinding "<leader>hs"
+      mkLuaBinding ["n"] "<leader>hs"
       # lua
       ''
         require("gitsigns").stage_hunk
@@ -39,7 +39,7 @@ in {
       "[s]tage hunk"
     )
     (
-      mkLuaBinding "<leader>hr"
+      mkLuaBinding ["n"] "<leader>hr"
       # lua
       ''
         require("gitsigns").reset_hunk
@@ -47,7 +47,7 @@ in {
       "[r]eset hunk"
     )
     (
-      mkLuaBinding "<leader>hu"
+      mkLuaBinding ["n"] "<leader>hu"
       # lua
       ''
         require("gitsigns").undo_stage_hunk
@@ -55,7 +55,7 @@ in {
       "[u]ndo stage hunk"
     )
     (
-      mkLuaBinding "<leader>hS"
+      mkLuaBinding ["n"] "<leader>hS"
       # lua
       ''
         require("gitsigns").stage_buffer
@@ -63,7 +63,7 @@ in {
       "[s]tage buffer"
     )
     (
-      mkLuaBinding "<leader>hR"
+      mkLuaBinding ["n"] "<leader>hR"
       # lua
       ''
         require("gitsigns").reset_buffer
@@ -71,7 +71,7 @@ in {
       "[r]eset buffer"
     )
     (
-      mkLuaBinding "<leader>hv"
+      mkLuaBinding ["n"] "<leader>hv"
       # lua
       ''
         require("gitsigns").preview_hunk
@@ -79,7 +79,7 @@ in {
       "[v]iew hunk"
     )
     (
-      mkLuaBinding "<leader>hb"
+      mkLuaBinding ["n"] "<leader>hb"
       # lua
       ''
         require("gitsigns").toggle_current_line_blame

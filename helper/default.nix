@@ -4,18 +4,16 @@
       ${lua}
     EOF
   '';
-  mkBinding = key: action: desc: {
-    inherit action key;
-    mode = ["n"];
+  mkBinding = mode: key: action: desc: {
+    inherit action key mode;
     options = {
       inherit desc;
       silent = true;
     };
   };
-  mkLuaBinding = key: action: desc: {
+  mkLuaBinding = mode: key: action: desc: {
     action.__raw = action;
-    inherit key;
-    mode = ["n"];
+    inherit key mode;
     options = {
       inherit desc;
       silent = true;
