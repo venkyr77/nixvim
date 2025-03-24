@@ -1,6 +1,7 @@
 {
   imports = [
-    ./jdtls-sonarlint.nix
+    ./jdtls.nix
+    ./sonarlint-ls.nix
   ];
 
   plugins = {
