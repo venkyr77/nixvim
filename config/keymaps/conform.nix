@@ -3,14 +3,14 @@
 in {
   keymaps = [
     (
-      mkLuaBinding ["n" "v"] "<leader>fb"
+      mkLuaBinding ["n" "v"] "<leader>lf"
       # lua
       ''
         function()
             require("conform").format()
         end
       ''
-      "format [b]uffer"
+      "[f]ormat buffer or selection using conform"
     )
   ];
 }
