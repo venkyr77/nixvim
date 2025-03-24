@@ -1,8 +1,4 @@
 {pkgs, ...}: {
-  imports = [
-    ./sonarlint.nix
-  ];
-
   plugins.lint = {
     autoCmd.event = [
       "BufEnter"

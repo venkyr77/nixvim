@@ -3,6 +3,20 @@
     lombok
   ];
 
+  extraPlugins = [
+    {
+      plugin = pkgs.vimUtils.buildVimPlugin {
+        name = "sonarlint.nvim";
+        src = pkgs.fetchFromGitLab {
+          owner = "schrieveslaach";
+          repo = "sonarlint.nvim";
+          rev = "main";
+          hash = "sha256-+GWsZuS3/inc4HGVuDxSEQjpIXlhldG3HDNUBU/UwIg=";
+        };
+      };
+    }
+  ];
+
   plugins.nvim-jdtls = with pkgs; let
     root_dir =
       # lua
@@ -39,6 +53,18 @@
         ''
           function(_, bufnr)
             vim.lsp.inlay_hint.enable(true, { bufnr = bufnr })
+
+            require("sonarlint").setup({
+              server = {
+                cmd = {
+                  "${lib.getExe sonarlint-ls}",
+                  "-stdio",
+                  "-analyzers",
+                  vim.fn.expand("${sonarlint-ls}/share/plugins/sonarjava.jar"),
+                },
+              },
+              filetypes = { "java" },
+            })
           end
         '';
     };
