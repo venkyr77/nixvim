@@ -34,7 +34,9 @@
     trouble = {
       enable = true;
       settings = {
+        auto_close = true;
         auto_jump = true;
+        auto_open = true;
         focus = true;
         win = {
           position = "right";
