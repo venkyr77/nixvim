@@ -32,18 +32,9 @@
         ts_ls.enable = true;
       };
     };
-    trouble = {
+    lspsaga = {
       enable = true;
-      settings = {
-        auto_close = false;
-        auto_jump = false;
-        auto_open = false;
-        focus = true;
-        win = {
-          position = "right";
-          size = 0.4;
-        };
-      };
+      finder.methods.tyd = "textDocument/typeDefinition";
     };
   };
 }

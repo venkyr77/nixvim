@@ -1,5 +1,5 @@
 {helper, ...}: let
-  inherit (helper) mkLuaBinding;
+  inherit (helper) mkBinding;
 in {
   plugins = {
     lsp.keymaps = {
@@ -12,71 +12,11 @@ in {
         "<leader>lca" = "code_action";
       };
     };
-    trouble.settings.keys = {
-      "<esc>" = "close";
-      "/" = "close";
-    };
   };
   keymapsOnEvents.LspAttach = [
-    (
-      mkLuaBinding ["n"] "<leader>gd"
-      # lua
-      ''
-        function()
-          local trouble = require("trouble")
-          trouble.toggle("lsp_definitions")
-          trouble.fold_close_all()
-        end
-      ''
-      "[d]efinitions"
-    )
-    (
-      mkLuaBinding ["n"] "<leader>gD"
-      # lua
-      ''
-        function()
-          local trouble = require("trouble")
-          trouble.toggle("lsp_declarations")
-          trouble.fold_close_all()
-        end
-      ''
-      "[D]eclarations"
-    )
-    (
-      mkLuaBinding ["n"] "<leader>gi"
-      # lua
-      ''
-        function()
-          local trouble = require("trouble")
-          trouble.toggle("lsp_implementations")
-          trouble.fold_close_all()
-        end
-      ''
-      "[i]mplementations"
-    )
-    (
-      mkLuaBinding ["n"] "<leader>gr"
-      # lua
-      ''
-        function()
-          local trouble = require("trouble")
-          trouble.toggle("lsp_references")
-          trouble.fold_close_all()
-        end
-      ''
-      "[r]eferences"
-    )
-    (
-      mkLuaBinding ["n"] "<leader>gt"
-      # lua
-      ''
-        function()
-          local trouble = require("trouble")
-          trouble.toggle("lsp_type_definitions")
-          trouble.fold_close_all()
-        end
-      ''
-      "[t]ype definitions"
-    )
+    (mkBinding ["n"] "<leader>gd" ":Lspsaga goto_definition<CR>" "[d]efinitions")
+    (mkBinding ["n"] "<leader>gi" ":Lspsaga finder imp<CR>" "[i]mplementations")
+    (mkBinding ["n"] "<leader>gr" ":Lspsaga finder ref<CR>" "[r]eferences")
+    (mkBinding ["n"] "<leader>gt" ":Lspsaga finder tyd<CR>" "[t]ype definitions")
   ];
 }
