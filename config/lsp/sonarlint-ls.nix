@@ -1,8 +1,8 @@
-{
-  pkgs,
-  helper,
-  ...
-}: {
+{pkgs, ...}: {
+  extraPackages = with pkgs; [
+    sonarlint-ls
+  ];
+
   extraPlugins = [
     {
       plugin = pkgs.vimUtils.buildVimPlugin {
@@ -14,22 +14,22 @@
           hash = "sha256-+GWsZuS3/inc4HGVuDxSEQjpIXlhldG3HDNUBU/UwIg=";
         };
       };
-      config = with pkgs;
-        helper.mkLua
-        # lua
-        ''
-          require("sonarlint").setup({
-            server = {
-              cmd = {
-                "${lib.getExe sonarlint-ls}",
-                "-stdio",
-                "-analyzers",
-                vim.fn.expand("${sonarlint-ls}/share/plugins/sonarjava.jar"),
-              },
-            },
-            filetypes = { "java" },
-          })
-        '';
     }
   ];
+
+  plugins.lsp.postConfig = with pkgs;
+  # lua
+    ''
+      require("sonarlint").setup({
+        server = {
+          cmd = {
+            "${lib.getExe sonarlint-ls}",
+            "-stdio",
+            "-analyzers",
+            vim.fn.expand("${sonarlint-ls}/share/plugins/sonarjava.jar")
+          },
+        },
+        filetypes = { "java" },
+      })
+    '';
 }
