@@ -15,14 +15,16 @@
       in {
         alejandra.command = lib.getExe alejandra;
         denofmt_md = denofmt "md";
+        google-java-format.command = lib.getExe google-java-format;
         nixfmt-rfc-style.command = lib.getExe nixfmt-rfc-style;
         prettierd.command = lib.getExe prettierd;
         shfmt.command = lib.getExe shfmt;
         stylua.command = lib.getExe stylua;
       };
       formatters_by_ft = {
-        markdown = ["denofmt_md"];
+        java = ["google-java-format"];
         lua = ["stylua"];
+        markdown = ["denofmt_md"];
         nix = ["alejandra"];
         sh = ["shfmt"];
         typescript = ["prettierd"];
