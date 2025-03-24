@@ -43,6 +43,16 @@
             '';
         }
       ];
+      init_options.extendedClientCapabilities.__raw =
+        # lua
+        ''
+          vim.tbl_extend(
+            "force",
+            {},
+            require("jdtls").extendedClientCapabilities,
+            { resolveAdditionalTextEditsSupport = true }
+          )
+        '';
       on_attach.__raw =
         #lua
         ''
