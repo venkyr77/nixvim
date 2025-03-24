@@ -1,4 +1,8 @@
-{pkgs, ...}: {
+{
+  pkgs,
+  helper,
+  ...
+}: {
   extraPackages = with pkgs; [
     jdk8
     jdk11
@@ -18,6 +22,7 @@
     enable = true;
     cmd = [];
     extraOptions = {
+      capabilities.__raw = helper.getClientCapabilitiesInlineLuaCode {};
       cmd = [
         "${lib.getExe pkgs.jdt-language-server}"
         "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"

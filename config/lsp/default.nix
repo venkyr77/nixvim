@@ -1,4 +1,4 @@
-{
+{helper, ...}: {
   imports = [
     ./jdtls.nix
     ./sonarlint-ls.nix
@@ -6,6 +6,7 @@
 
   plugins = {
     lsp = {
+      capabilities = helper.getClientCapabilitiesInlineLuaCode {};
       enable = true;
       inlayHints = true;
       postConfig =
