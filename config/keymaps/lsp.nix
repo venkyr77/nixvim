@@ -17,7 +17,7 @@ in {
       "/" = "close";
     };
   };
-  keymaps = [
+  keymapsOnEvents.LspAttach = [
     (
       mkLuaBinding ["n"] "<leader>gd"
       # lua
