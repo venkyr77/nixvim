@@ -1,5 +1,9 @@
 {pkgs, ...}: {
   extraPackages = with pkgs; [
+    jdk8
+    jdk11
+    jdk17
+    jdk21
     lombok
   ];
 
@@ -45,8 +49,33 @@
     rootDir.__raw = root_dir;
     settings = {
       java = {
-        inlayHints = {
-          parameterNames.enabled = "all";
+        completion.enabled = true;
+        configuration.runtimes = with pkgs; [
+          {
+            name = "JavaSE-1.8";
+            path = "${jdk8}";
+          }
+          {
+            name = "JavaSE-11";
+            path = "${jdk11}";
+          }
+          {
+            name = "JavaSE-17";
+            path = "${jdk17}";
+            default = true;
+          }
+          {
+            name = "JavaSE-21";
+            path = "${jdk21}";
+          }
+        ];
+        contentProvider.preferred = "fernflower";
+        eclipse.downloadSources = true;
+        inlayHints.parameterNames.enabled = "all";
+        signatureHelp.enabled = true;
+        sources.organizeImports = {
+          starThreshold = 9999;
+          staticStarThreshold = 9999;
         };
       };
     };
