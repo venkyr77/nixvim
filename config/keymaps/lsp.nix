@@ -12,6 +12,10 @@ in {
         "<leader>lca" = "code_action";
       };
     };
+    lspsaga.finder.keys = {
+      quit = ["q" "<Esc>"];
+      toggleOrOpen = ["o" "<CR>"];
+    };
   };
   keymapsOnEvents.LspAttach = [
     (mkBinding ["n"] "<leader>gd" ":Lspsaga goto_definition<CR>" "[d]efinitions")
