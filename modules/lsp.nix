@@ -4,80 +4,114 @@
       onAttach =
         # lua
         ''
-          if vim.b[bufnr].nixvim_lsp_keymaps_registered then
+          if not vim.b[bufnr].nixvim_lsp_keymaps_registered then
+            vim.b[bufnr].nixvim_lsp_keymaps_registered = true
+            local picker_opts = {
+              layout = { fullscreen = true },
+            }
+            require("which-key").add({
+              {
+                "<leader>g",
+                buffer = bufnr,
+                desc = "+[g]oto(lsp)",
+                icon = " ",
+              },
+              {
+                "<leader>gD",
+                function()
+                  Snacks.picker.lsp_declarations(picker_opts)
+                end,
+                buffer = bufnr,
+                desc = "[D]eclarations",
+              },
+              {
+                "<leader>gd",
+                function()
+                  Snacks.picker.lsp_definitions(picker_opts)
+                end,
+                buffer = bufnr,
+                desc = "[d]efinitions",
+              },
+              {
+                "<leader>gi",
+                function()
+                  Snacks.picker.lsp_implementations(picker_opts)
+                end,
+                buffer = bufnr,
+                desc = "[i]mplementations",
+              },
+              {
+                "<leader>gr",
+                function()
+                  Snacks.picker.lsp_references(picker_opts)
+                end,
+                buffer = bufnr,
+                desc = "[r]eferences",
+              },
+              {
+                "<leader>gt",
+                function()
+                  Snacks.picker.lsp_type_definitions(picker_opts)
+                end,
+                buffer = bufnr,
+                desc = "[t]ype definitions",
+              },
+              {
+                "<leader>l",
+                buffer = bufnr,
+                desc = "+[l]sp",
+              },
+              {
+                "<leader>la",
+                function()
+                  vim.lsp.buf.code_action()
+                end,
+                buffer = bufnr,
+                desc = "code [a]ction",
+              },
+              {
+                "<leader>lr",
+                function()
+                  vim.lsp.buf.rename()
+                end,
+                buffer = bufnr,
+                desc = "[r]ename",
+              },
+            })
+          end
+          if client.name ~= "jdtls" or vim.b[bufnr].nixvim_jdtls_test_keymaps_registered then
             return
           end
-          vim.b[bufnr].nixvim_lsp_keymaps_registered = true
-          local picker_opts = {
-            layout = { fullscreen = true },
-          }
+          vim.b[bufnr].nixvim_jdtls_test_keymaps_registered = true
           require("which-key").add({
             {
-              "<leader>g",
+              "<leader>lt",
               buffer = bufnr,
-              desc = "+[g]oto(lsp)",
-              icon = " ",
+              desc = "+[t]est(jdtls)",
             },
             {
-              "<leader>gD",
+              "<leader>ltc",
               function()
-                Snacks.picker.lsp_declarations(picker_opts)
+                require("jdtls").test_class({
+                  config_overrides = {
+                    shortenCommandLine = "argfile",
+                  },
+                })
               end,
               buffer = bufnr,
-              desc = "[D]eclarations",
+              desc = "[t]est [c]lass",
             },
             {
-              "<leader>gd",
+              "<leader>ltm",
               function()
-                Snacks.picker.lsp_definitions(picker_opts)
+                require("jdtls").test_nearest_method({
+                  config_overrides = {
+                    shortenCommandLine = "argfile",
+                  },
+                })
               end,
               buffer = bufnr,
-              desc = "[d]efinitions",
-            },
-            {
-              "<leader>gi",
-              function()
-                Snacks.picker.lsp_implementations(picker_opts)
-              end,
-              buffer = bufnr,
-              desc = "[i]mplementations",
-            },
-            {
-              "<leader>gr",
-              function()
-                Snacks.picker.lsp_references(picker_opts)
-              end,
-              buffer = bufnr,
-              desc = "[r]eferences",
-            },
-            {
-              "<leader>gt",
-              function()
-                Snacks.picker.lsp_type_definitions(picker_opts)
-              end,
-              buffer = bufnr,
-              desc = "[t]ype definitions",
-            },
-            {
-              "<leader>l",
-              buffer = bufnr,
-              desc = "+[l]sp",
-            },
-            {
-              "<leader>la",
-              function()
-                vim.lsp.buf.code_action()
-              end,
-              buffer = bufnr,
-              desc = "code [a]ction",
-            },
-            {
-              "<leader>lr",
-              function()
-                vim.lsp.buf.rename()
-              end,
-              buffer = bufnr,
-              desc = "[r]ename",
+              desc = "[t]est nearest [m]ethod",
             },
           })
         '';
@@ -119,39 +153,42 @@
                 '';
             }
           ];
-          init_options.bundles =
-            lib.nixvim.mkRaw
-              # lua
-              ''
-                vim.iter({
-                  vim.fn.glob(
-                    "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/*.jar",
-                    true,
-                    true
-                  ),
-                  vim.fn.glob(
-                    "${
-                      pkgs.vscode-utils.buildVscodeMarketplaceExtension {
-                        mktplcRef = {
-                          hash = "sha256-Nxc1yAA78t1r5QZtGHCTGW2NSld9e8Nxwifbn69UKvM=";
-                          name = "vscode-java-test";
-                          publisher = "vscjava";
-                          version = "0.46.0";
-                        };
-                      }
-                    }/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar",
-                    true,
-                    true
-                  ),
-                })
-                  :flatten()
-                  :filter(function(jar)
-                    local name = vim.fs.basename(jar)
-                    return name ~= "com.microsoft.java.test.runner-jar-with-dependencies.jar"
-                      and name ~= "jacocoagent.jar"
-                  end)
-                  :totable()
-              '';
+          init_options = {
+            bundles =
+              lib.nixvim.mkRaw
+                # lua
+                ''
+                  vim.iter({
+                    vim.fn.glob(
+                      "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/*.jar",
+                      true,
+                      true
+                    ),
+                    vim.fn.glob(
+                      "${
+                        pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+                          mktplcRef = {
+                            hash = "sha256-Nxc1yAA78t1r5QZtGHCTGW2NSld9e8Nxwifbn69UKvM=";
+                            name = "vscode-java-test";
+                            publisher = "vscjava";
+                            version = "0.46.0";
+                          };
+                        }
+                      }/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar",
+                      true,
+                      true
+                    ),
+                  })
+                    :flatten()
+                    :filter(function(jar)
+                      local name = vim.fs.basename(jar)
+                      return name ~= "com.microsoft.java.test.runner-jar-with-dependencies.jar"
+                        and name ~= "jacocoagent.jar"
+                    end)
+                    :totable()
+                '';
+            extendedClientCapabilities.resolveAdditionalTextEditsSupport = true;
+          };
           root_markers = [
             ".git"
           ];

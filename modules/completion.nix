@@ -10,6 +10,13 @@
         inputs.self.modules.nixvim.snippets
       ];
 
+      extraConfigLua =
+        # lua
+        ''
+          vim.lsp.config("*", {
+            capabilities = require("blink.cmp").get_lsp_capabilities(),
+          })
+        '';
       extraPlugins = [
         inputs.self.nvimPluginPins.lspkind
       ];
