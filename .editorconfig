@@ -1,0 +1,98 @@
+root = true
+
+[*]
+indent_style = space
+indent_size = 4
+
+[*.{astro,svelte,vue}]
+indent_size = 2
+
+[*.{bash,sh,zsh}]
+indent_size = 2
+
+[*.{cabal,hs,lhs}]
+indent_size = 2
+
+[*.{cjs,cts,js,jsx,mjs,mts,ts,tsx}]
+indent_size = 2
+
+[*.{clj,cljc,cljs,edn}]
+indent_size = 2
+
+[*.{css,sass,scss,styl}]
+indent_size = 2
+
+[*.dart]
+indent_size = 2
+
+[*.{ex,exs}]
+indent_size = 2
+
+[*.go]
+indent_style = tab
+
+[*.{gql,graphql}]
+indent_size = 2
+
+[*.{hbs,j2,jinja2,liquid,mustache,njk,twig}]
+indent_size = 2
+
+[*.{hcl,tf,tfvars}]
+indent_size = 2
+
+[*.{htm,html,xhtml}]
+indent_size = 2
+
+[*.{json,json5,jsonc}]
+indent_size = 2
+
+[*.kdl]
+indent_size = 2
+
+[*.lua]
+indent_size = 2
+
+[*.{md,mdx}]
+indent_size = 2
+
+[*.{ml,mli}]
+indent_size = 2
+
+[*.nix]
+indent_size = 2
+
+[*.proto]
+indent_size = 2
+
+[*.{r,R}]
+indent_size = 2
+
+[*.rb]
+indent_size = 2
+
+[*.{sc,scala}]
+indent_size = 2
+
+[*.tex]
+indent_size = 2
+
+[*.toml]
+indent_size = 2
+
+[*.typ]
+indent_size = 2
+
+[*.vim]
+indent_size = 2
+
+[*.{xml,xsd,xsl}]
+indent_size = 2
+
+[*.{yaml,yml}]
+indent_size = 2
+
+[{CMakeLists.txt,*.cmake}]
+indent_size = 2
+
+[{Makefile,makefile,*.mk}]
+indent_style = tab
