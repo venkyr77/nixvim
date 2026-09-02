@@ -93,6 +93,9 @@
           enable = true;
           config.settings.basedpyright.analysis.typeCheckingMode = "recommended";
         };
+        jdtls.config.root_markers = [
+          ".git"
+        ];
         marksman.enable = true;
         nixd.enable = true;
         rumdl = {
