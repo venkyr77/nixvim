@@ -12,4 +12,6 @@ JDT LS runs on JDK 21. Java 8, 11, 17, 21, and 25 are configured as project
 runtimes, with Java 17 as the default. Java completion, signature help, all
 parameter-name inlay hints, Fernflower class content, and Eclipse source
 downloads are enabled. Import wildcard thresholds are 9999. Project roots are
-discovered only from `.git`; Maven and Gradle files do not define roots.
+discovered only from `.git`; Maven and Gradle files do not define roots. Lombok
+runs as a JDT LS Java agent. Java debugging uses nvim-dap and the Java Debug
+extension; Java testing uses the Java Test extension.

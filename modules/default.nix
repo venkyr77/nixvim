@@ -15,6 +15,7 @@
       modules.nixvim.default = { pkgs, ... }: {
         imports = [
           inputs.self.modules.nixvim.completion
+          inputs.self.modules.nixvim.debugging
           inputs.self.modules.nixvim.diagnostic
           inputs.self.modules.nixvim.editor
           inputs.self.modules.nixvim.formatting

@@ -93,9 +93,6 @@
           enable = true;
           config.settings.basedpyright.analysis.typeCheckingMode = "recommended";
         };
-        jdtls.config.root_markers = [
-          ".git"
-        ];
         marksman.enable = true;
         nixd.enable = true;
         rumdl = {
@@ -109,38 +106,88 @@
       jdtls = {
         enable = true;
         jdtLanguageServerPackage = null;
-        settings.settings.java = {
-          completion.enabled = true;
-          configuration.runtimes = [
+        settings = {
+          cmd = [
+            (lib.getExe pkgs.jdt-language-server)
+            "--jvm-arg=-javaagent:${pkgs.lombok}/share/java/lombok.jar"
+            "-data"
             {
-              name = "JavaSE-1.8";
-              path = pkgs.jdk8.home;
-            }
-            {
-              name = "JavaSE-11";
-              path = pkgs.jdk11.home;
-            }
-            {
-              default = true;
-              name = "JavaSE-17";
-              path = pkgs.jdk17.home;
-            }
-            {
-              name = "JavaSE-21";
-              path = pkgs.jdk21.home;
-            }
-            {
-              name = "JavaSE-25";
-              path = pkgs.jdk25.home;
+              __raw =
+                # lua
+                ''
+                  vim.fn.stdpath("cache") .. "/jdtls/workspace/" .. vim.fn.fnamemodify(vim.fn.getcwd(), ":p:h:t")
+                '';
             }
           ];
-          contentProvider.preferred = "fernflower";
-          eclipse.downloadSources = true;
-          inlayHints.parameterNames.enabled = "all";
-          signatureHelp.enabled = true;
-          sources.organizeImports = {
-            starThreshold = 9999;
-            staticStarThreshold = 9999;
+          init_options.bundles =
+            lib.nixvim.mkRaw
+              # lua
+              ''
+                vim.iter({
+                  vim.fn.glob(
+                    "${pkgs.vscode-extensions.vscjava.vscode-java-debug}/share/vscode/extensions/vscjava.vscode-java-debug/server/*.jar",
+                    true,
+                    true
+                  ),
+                  vim.fn.glob(
+                    "${
+                      pkgs.vscode-utils.buildVscodeMarketplaceExtension {
+                        mktplcRef = {
+                          hash = "sha256-Nxc1yAA78t1r5QZtGHCTGW2NSld9e8Nxwifbn69UKvM=";
+                          name = "vscode-java-test";
+                          publisher = "vscjava";
+                          version = "0.46.0";
+                        };
+                      }
+                    }/share/vscode/extensions/vscjava.vscode-java-test/server/*.jar",
+                    true,
+                    true
+                  ),
+                })
+                  :flatten()
+                  :filter(function(jar)
+                    local name = vim.fs.basename(jar)
+                    return name ~= "com.microsoft.java.test.runner-jar-with-dependencies.jar"
+                      and name ~= "jacocoagent.jar"
+                  end)
+                  :totable()
+              '';
+          root_markers = [
+            ".git"
+          ];
+          settings.java = {
+            completion.enabled = true;
+            configuration.runtimes = [
+              {
+                name = "JavaSE-1.8";
+                path = pkgs.jdk8.home;
+              }
+              {
+                name = "JavaSE-11";
+                path = pkgs.jdk11.home;
+              }
+              {
+                default = true;
+                name = "JavaSE-17";
+                path = pkgs.jdk17.home;
+              }
+              {
+                name = "JavaSE-21";
+                path = pkgs.jdk21.home;
+              }
+              {
+                name = "JavaSE-25";
+                path = pkgs.jdk25.home;
+              }
+            ];
+            contentProvider.preferred = "fernflower";
+            eclipse.downloadSources = true;
+            inlayHints.parameterNames.enabled = "all";
+            signatureHelp.enabled = true;
+            sources.organizeImports = {
+              starThreshold = 9999;
+              staticStarThreshold = 9999;
+            };
           };
         };
       };
