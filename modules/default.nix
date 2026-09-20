@@ -24,6 +24,42 @@
           inputs.self.modules.nixvim.ui
         ];
 
+        colorschemes.catppuccin = {
+          enable = true;
+          package = inputs.self.nvimPluginPins.catppuccin;
+          settings = {
+            auto_integrations = false;
+            custom_highlights =
+              # lua
+              ''
+                function(colors)
+                  return {
+                    RainbowBlue = { blend = 0, fg = colors.blue },
+                    RainbowCyan = { blend = 0, fg = colors.teal },
+                    RainbowGreen = { blend = 0, fg = colors.green },
+                    RainbowOrange = { blend = 0, fg = colors.peach },
+                    RainbowRed = { blend = 0, fg = colors.red },
+                    RainbowViolet = { blend = 0, fg = colors.mauve },
+                    RainbowYellow = { blend = 0, fg = colors.yellow },
+                  }
+                end
+              '';
+            default_integrations = false;
+            flavour = "mocha";
+            integrations = {
+              blink_cmp = {
+                enabled = true;
+                style = "bordered";
+              };
+              gitsigns = true;
+              neotree = true;
+              noice = true;
+              rainbow_delimiters = true;
+              snacks = true;
+              which_key = true;
+            };
+          };
+        };
         extraConfigLua =
           # lua
           ''
@@ -43,37 +79,13 @@
                 end,
                 desc = "[g]rep",
               },
-              { "<leader>t", desc = "+[t]heme", icon = " " },
-              {
-                "<leader>tt",
-                function()
-                  vim.o.background = vim.o.background == "dark" and "light" or "dark"
-                  vim.cmd.colorscheme("everforest")
-                end,
-                desc = "[t]oggle dark/light",
-              },
             })
-          '';
-        extraConfigLuaPre =
-          # lua
-          ''
-            require("everforest").setup({
-              background = "hard",
-              on_highlights = function(highlights, palette)
-                highlights.DiagnosticUnderlineHint = {
-                  sp = palette.purple,
-                  undercurl = true,
-                }
-              end,
-            })
-            vim.cmd.colorscheme("everforest")
           '';
         extraPackages = [
           pkgs.fd
           pkgs.ripgrep
         ];
         extraPlugins = [
-          inputs.self.nvimPluginPins.everforest
           inputs.self.nvimPluginPins.plenary
         ];
         globals = {
@@ -111,13 +123,13 @@
               indent = {
                 enabled = true;
                 indent.hl = [
-                  "RainbowDelimiterBlue"
-                  "RainbowDelimiterCyan"
-                  "RainbowDelimiterGreen"
-                  "RainbowDelimiterOrange"
-                  "RainbowDelimiterRed"
-                  "RainbowDelimiterViolet"
-                  "RainbowDelimiterYellow"
+                  "RainbowBlue"
+                  "RainbowCyan"
+                  "RainbowGreen"
+                  "RainbowOrange"
+                  "RainbowRed"
+                  "RainbowViolet"
+                  "RainbowYellow"
                 ];
                 scope.enabled = false;
               };

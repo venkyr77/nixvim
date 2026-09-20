@@ -26,6 +26,22 @@
       "url": "https://github.com/akinsho/bufferline.nvim/archive/655133c3b4c3e5e05ec549b9f8cc2894ac6f51b3.tar.gz",
       "hash": "sha256-ae4MB6+6v3awvfSUWlau9ASJ147ZpwuX1fvJdfMwo1Q="
     },
+    "catppuccin": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "catppuccin",
+        "repo": "nvim"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v2.0.0",
+      "revision": "605b4603797de970e9f3a4238c199c850da03186",
+      "url": "https://api.github.com/repos/catppuccin/nvim/tarball/refs/tags/v2.0.0",
+      "hash": "sha256-7R4jo4tLHuS34hikP+TeI3TH16qF7CAhhmChhzJ8NtQ="
+    },
     "conform-nvim": {
       "type": "GitRelease",
       "repository": {
@@ -41,19 +57,6 @@
       "revision": "3543d000dafbc41cc7761d860cfdb24e82154f75",
       "url": "https://api.github.com/repos/stevearc/conform.nvim/tarball/refs/tags/v9.1.0",
       "hash": "sha256-pUF9F5QoDzCZuVRcJEF91M8Qjkh/xosMkf9tRavkmJs="
-    },
-    "everforest": {
-      "type": "Git",
-      "repository": {
-        "type": "GitHub",
-        "owner": "neanias",
-        "repo": "everforest-nvim"
-      },
-      "branch": "main",
-      "submodules": false,
-      "revision": "a0e9edc57379e8feafc6ba207c26dbb12fc1b6d8",
-      "url": "https://github.com/neanias/everforest-nvim/archive/a0e9edc57379e8feafc6ba207c26dbb12fc1b6d8.tar.gz",
-      "hash": "sha256-+/GahVEA2ensvI/EWCH/tRVbCYUxAKPXmyzZEra8u40="
     },
     "friendly-snippets": {
       "type": "Git",

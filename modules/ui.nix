@@ -4,35 +4,43 @@
       bufferline = {
         enable = true;
         package = inputs.self.nvimPluginPins.bufferline;
-        settings.options = {
-          close_command =
+        settings = {
+          highlights =
             lib.nixvim.mkRaw
               # lua
               ''
-                function(n)
-                  Snacks.bufdelete(n)
+                require("catppuccin.special.bufferline").get_theme()
+              '';
+          options = {
+            close_command =
+              lib.nixvim.mkRaw
+                # lua
+                ''
+                  function(n)
+                    Snacks.bufdelete(n)
+                  end
+                '';
+            diagnostics = "nvim_lsp";
+            diagnostics_indicator =
+              # lua
+              ''
+                function(_, _, diag)
+                  return vim.trim(
+                    (diag.error and (" " .. diag.error .. " ") or "")
+                      .. (diag.warning and (" " .. diag.warning) or "")
+                  )
                 end
               '';
-          diagnostics = "nvim_lsp";
-          diagnostics_indicator =
-            # lua
-            ''
-              function(_, _, diag)
-                return vim.trim(
-                  (diag.error and (" " .. diag.error .. " ") or "")
-                    .. (diag.warning and (" " .. diag.warning) or "")
-                )
-              end
-            '';
-          indicator.style = "underline";
-          offsets = [
-            {
-              filetype = "neo-tree";
-              highlight = "Directory";
-              separator = true;
-              text = "󰙅  File Explorer";
-            }
-          ];
+            indicator.style = "underline";
+            offsets = [
+              {
+                filetype = "neo-tree";
+                highlight = "Directory";
+                separator = true;
+                text = "󰙅  File Explorer";
+              }
+            ];
+          };
         };
       };
       lualine = {
