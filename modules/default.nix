@@ -55,6 +55,7 @@
               neotree = true;
               noice = true;
               rainbow_delimiters = true;
+              render_markdown = true;
               snacks = true;
               which_key = true;
             };

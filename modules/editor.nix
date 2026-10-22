@@ -87,6 +87,10 @@
         enable = true;
         package = inputs.self.nvimPluginPins.nvim-autopairs;
       };
+      render-markdown = {
+        enable = true;
+        package = inputs.self.nvimPluginPins.render-markdown;
+      };
       todo-comments = {
         enable = true;
         package = inputs.self.nvimPluginPins.todo-comments;
