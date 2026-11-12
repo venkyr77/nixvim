@@ -54,6 +54,7 @@
         settings = {
           injector.python3.before = [
             "from __future__ import annotations"
+            ""
           ];
           lang = "python3";
           picker.provider = "snacks-picker";
