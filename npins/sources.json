@@ -97,6 +97,22 @@
       "url": "https://github.com/NMAC427/guess-indent.nvim/archive/84a4987ff36798c2fc1169cbaff67960aed9776f.tar.gz",
       "hash": "sha256-M/FkwCXXhojVFEcCuHo/GkuCCSX9GlVYHBUECSZxBjs="
     },
+    "leetcode": {
+      "type": "GitRelease",
+      "repository": {
+        "type": "GitHub",
+        "owner": "kawre",
+        "repo": "leetcode.nvim"
+      },
+      "pre_releases": false,
+      "version_upper_bound": null,
+      "release_prefix": null,
+      "submodules": false,
+      "version": "v0.3.1",
+      "revision": "46c627cc51c36163141b1951e703bfdb437a9e18",
+      "url": "https://api.github.com/repos/kawre/leetcode.nvim/tarball/refs/tags/v0.3.1",
+      "hash": "sha256-OuUN9nMMm4U7XYG9w84x2iB3EEjpKjfGFGi+XmYQmgg="
+    },
     "lspkind": {
       "type": "Git",
       "repository": {

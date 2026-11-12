@@ -48,6 +48,14 @@
             end
           '';
       };
+      leetcode = {
+        enable = true;
+        package = inputs.self.nvimPluginPins.leetcode;
+        settings = {
+          lang = "python3";
+          picker.provider = "snacks-picker";
+        };
+      };
       markdown-preview = {
         enable = true;
         settings = {
